@@ -1,6 +1,6 @@
 package GoogleHashCode2018;
 
-public class Course {
+public class Course implements Comparable {
 	int id;
 	PosTps debut, fin;
 	
@@ -28,6 +28,12 @@ public class Course {
 	}
 	
 	public String toString() {
-		return "Course n°"+id+"\nDebut en "+debut+"\nFin en "+fin;
+		return "--- Course n°"+id+" ---\nDebut en "+debut+"\nFin en "+fin;
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+
+		return 0;
 	}
 }

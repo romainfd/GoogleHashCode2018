@@ -30,11 +30,10 @@ public class Voiture implements Comparable{
 	public void newCourse(Course course) {
 		int start=this.dispo+Math.abs(course.debut.x-this.courseCourante.fin.x)+Math.abs(course.debut.y-this.courseCourante.fin.y);
 		this.courseCourante=course;
-		this.dispo=start+Math.abs(course.fin.x-course.debut.x)+Math.abs(course.fin.y-course.debut.y);		
-		if (this.dispo<=course.fin.t) {
-			nbreCourses=nbreCourses+1;
-			coursesEffectuees=coursesEffectuees+course.id+" ";
-		}
+		this.dispo=start+Math.abs(course.fin.x-course.debut.x)+Math.abs(course.fin.y-course.debut.y);	
+		nbreCourses=nbreCourses+1;
+		coursesEffectuees=coursesEffectuees+course.id+" ";
+
 	}
 	
 

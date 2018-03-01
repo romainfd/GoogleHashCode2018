@@ -76,10 +76,10 @@ public class Instance {
 	 * Ecrit l'output correspondant aux courses effectuées
 	 * @param tas des voitures
 	 */
-	public void output(PriorityQueue<Voiture> voitures, String outputfile) {
+	public void output(PriorityQueue<Voiture> voitures) {
 		PrintWriter writer;
 		try {
-			writer = new PrintWriter("src/GoogleHashCode2018/data/output/"+outputfile, "UTF-8");
+			writer = new PrintWriter("src/GoogleHashCode2018/data/output/"+this.file, "UTF-8");
 			Iterator<Voiture> it = voitures.iterator();
 			while (it.hasNext()) {
 				Voiture voit = it.next();

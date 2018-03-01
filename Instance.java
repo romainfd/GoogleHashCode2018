@@ -19,7 +19,6 @@ public class Instance {
 		BufferedReader br = new BufferedReader(new FileReader("src/GoogleHashCode2018/data/"+file));
 		this.file = file;
 		try {
-			String ligne1;
 		    String line = br.readLine();
 		    
 		    // Lecture de la première ligne

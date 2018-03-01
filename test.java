@@ -1,5 +1,6 @@
 package GoogleHashCode2018;
 
+import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 public class test {
@@ -16,7 +17,7 @@ public class test {
 			int currentTime = 0;
 			Instance ins = new Instance(inputs[j]);
 			PriorityQueue<Course> courses=ins.courses;
-			PriorityQueue<Voiture> voitures= new PriorityQueue<Voiture>();
+			LinkedList<Voiture> voitures= new LinkedList<Voiture>();
 			
 			for(int i=0;i<ins.f;i++){
 				voitures.add(new Voiture());
@@ -24,16 +25,33 @@ public class test {
 			
 			Course c1;
 			Voiture v1;
+			int d;
 			while (!courses.isEmpty()){
-				v1=voitures.poll();
-				currentTime=v1.dispo;
+				d=ins.col+ins.row;
 				c1=courses.poll();
-				v1.newCourse(c1);
-				voitures.add(v1);
+				v1=null;
+				for (Voiture v:voitures){
+					if (v.isCourse(c1)==2 && v.getDist(c1)<d){
+						v1=v;
+						d=v.getDist(c1);
+					}
+				}
+				if (v1==null){
+					for (Voiture v:voitures){
+						if (v.isCourse(c1)==1 && v.getDist(c1)<d){
+							v1=v;
+							d=v.getDist(c1);
+						}
+					}
+				}
+				if (v1!=null){
+					v1.newCourse(c1);
+				}
 			}
 			
 			ins.output(voitures);
 		}
+
 	}
 
 }

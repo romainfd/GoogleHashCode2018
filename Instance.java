@@ -6,13 +6,13 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 public class Instance {
 	String file;
 	int row, col, f, nbCourses, bonus, steps;
-	PriorityQueue<Course> courses, coursesInitiales;
-
+	PriorityQueue<Course> courses;
 	
 	/**
 	 * Constructeur à partir d'un fichier d'input d'une instance du challenge
@@ -61,7 +61,6 @@ public class Instance {
 	@Override
 	public String toString() {
 		String str = "-------- Instance "+file+" --------\n";
-		str += "Taille ("+row+"x"+col+") avec "+f+" voitures pour "+nbCourses+" courses en "+steps+" étapes.\n";
 		Iterator<Course> it = this.courses.iterator();
 		while (it.hasNext()) {
 			str += it.next()+"\n";
@@ -78,8 +77,7 @@ public class Instance {
 	 * Ecrit l'output correspondant aux courses effectuées
 	 * @param tas des voitures
 	 */
-	public void output(PriorityQueue<Voiture> voitures) {
-		System.out.println(this);
+	public void output(LinkedList<Voiture> voitures) {
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter("src/GoogleHashCode2018/data/output/"+this.file, "UTF-8");

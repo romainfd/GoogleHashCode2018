@@ -3,7 +3,7 @@ package GoogleHashCode2018;
 public class Voiture implements Comparable{
 	Course courseCourante;
 	int dispo;
-	String coursesEffectuees;
+	String coursesEffectuees = "";
 	int nbreCourses;
 	
 	/** Constructeur

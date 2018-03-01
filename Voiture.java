@@ -1,6 +1,6 @@
 package GoogleHashCode2018;
 
-public class Voiture implements Comparable {
+public class Voiture implements Comparable{
 	Course courseCourante;
 	int dispo;
 	String coursesEffectuees;
@@ -9,9 +9,18 @@ public class Voiture implements Comparable {
 	/** Constructeur
 	 * 
 	 */
-	public Voiture() {
-		this.courseCourante=null;
+	public Voiture()  {
+		this.courseCourante=new Course(-1, new PosTps(0,0,0), new PosTps(0,0,0));
 		this.dispo=0;
+	}
+	
+	@Override
+	public int compareTo(Object arg0) {
+		Voiture v2= (Voiture) arg0;
+		if (this.dispo > v2.dispo){
+			return 1;
+		}
+		return 0;
 	}
 	
 	/** ajoute une nouvelle course à la voiture
@@ -27,10 +36,6 @@ public class Voiture implements Comparable {
 			coursesEffectuees=coursesEffectuees+course.id+" ";
 		}
 	}
+	
 
-	@Override
-	public int compareTo(Object arg0) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

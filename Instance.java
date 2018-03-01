@@ -1,7 +1,10 @@
 package GoogleHashCode2018;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
@@ -67,5 +70,25 @@ public class Instance {
 	public static void main(String[] args) {
 		Instance ins = new Instance("a_example.in");
 		System.out.println(ins);
+	}
+	
+	/**
+	 * Ecrit l'output correspondant aux courses effectuées
+	 * @param tas des voitures
+	 */
+	public void output(PriorityQueue<Voiture> voitures, String outputfile) {
+		PrintWriter writer;
+		try {
+			writer = new PrintWriter("src/GoogleHashCode2018/data/output/"+outputfile, "UTF-8");
+			Iterator<Voiture> it = voitures.iterator();
+			while (it.hasNext()) {
+				Voiture voit = it.next();
+				writer.println(voit.nbreCourses+" "+voit.coursesEffectuees);
+			}
+			writer.close();
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

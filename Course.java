@@ -33,6 +33,7 @@ public class Course implements Comparable {
 
 	@Override
 	public int compareTo(Object arg0) {
-		return 0;
+		Course that = (Course) arg0;
+		return this.fin.t - that.fin.t;
 	}
 }

@@ -1,6 +1,6 @@
 package GoogleHashCode2018;
 
-public class Voiture {
+public class Voiture implements Comparable {
 	Course courseCourante;
 	int dispo;
 	String coursesEffectuees;
@@ -27,6 +27,10 @@ public class Voiture {
 			coursesEffectuees=coursesEffectuees+course.id+" ";
 		}
 	}
-	
 
+	@Override
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

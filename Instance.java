@@ -11,7 +11,8 @@ import java.util.PriorityQueue;
 public class Instance {
 	String file;
 	int row, col, f, nbCourses, bonus, steps;
-	PriorityQueue<Course> courses;
+	PriorityQueue<Course> courses, coursesInitiales;
+
 	
 	/**
 	 * Constructeur à partir d'un fichier d'input d'une instance du challenge
@@ -60,6 +61,7 @@ public class Instance {
 	@Override
 	public String toString() {
 		String str = "-------- Instance "+file+" --------\n";
+		str += "Taille ("+row+"x"+col+") avec "+f+" voitures pour "+nbCourses+" courses en "+steps+" étapes.\n";
 		Iterator<Course> it = this.courses.iterator();
 		while (it.hasNext()) {
 			str += it.next()+"\n";
@@ -77,6 +79,7 @@ public class Instance {
 	 * @param tas des voitures
 	 */
 	public void output(PriorityQueue<Voiture> voitures) {
+		System.out.println(this);
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter("src/GoogleHashCode2018/data/output/"+this.file, "UTF-8");
